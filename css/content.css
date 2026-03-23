@@ -1,16 +1,14 @@
 .nav_container {
-  transition: transform 0.35s ease;
+  transition: transform 0.35s cubic-bezier(0.51, 0.44, 0, 1.04);
 
   display: none;
 }
 
 .nav_container.appear {
   transform: rotate(1deg) translateX(10px) translateY(2px);
-
-  display: block;
 }
 
-.nav_container.appear:hover {
+.nav_container:hover {
     transform: rotate(0.5deg) translateX(5px) translateY(1px);
 }
 
@@ -19,9 +17,9 @@ nav {
   transition: transform 0.4s cubic-bezier(0.51, 0.44, 0, 1.04);
 }
 
-nav.open {
+/* nav.open {
   transform: none;
-}
+} */
 
 .nav-toggle {
   display: block;
@@ -76,7 +74,7 @@ About page
     display: block;
   }
 
-  .about .nav_container.appear:hover {
+  .about .nav_container:hover {
     transform: rotate(0.5deg) translateX(5px) translateY(2px);
   }
 
@@ -109,9 +107,7 @@ About page
 
 @media (max-width: 1025px) {
   .nav_container.appear,
-  .nav_container.appear:hover,
-  .about .nav_container.appear,
-  .about .nav_container.appear:hover {
+  .about .nav_container.appear {
     transform: none;
   }
 }

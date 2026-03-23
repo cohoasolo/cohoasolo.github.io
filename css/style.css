@@ -7,6 +7,7 @@
 
 /* Body font */
 @import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 .about::-webkit-scrollbar {
   display: none;
@@ -24,8 +25,8 @@ body {
   --margin: 20px;
   --navWidth: calc(25vw - var(--margin)/2 - var(--gap) * 3/4 - 1px);
   --background: #f0f0ee;
-  --aboutBackground: rgb(196, 194, 186);
-  --projectTagColor: rgba(255, 251, 165, 0.75);
+  --aboutBackground: rgb(216 213 202);
+  --projectTagColor: rgba(250, 246, 164, 0.75);
   /* 
         rgba(255, 185, 180, 0.75)
         rgba(255, 251, 165, 0.75) project-tag
@@ -33,14 +34,15 @@ body {
     */
   color: #000;
   font-size: 1.125rem;
-  line-height: normal;
+  line-height: 1.5;
   gap: var(--gap);
   padding: 0;
   margin: 0;
-  font-family: "Overpass Mono", monospace;
+  font-family: "Lexend", sans-serif;
   background-color: var(--background);
   overflow-x: hidden;
-  font-weight: 300;
+  font-weight: 260;
+  letter-spacing: 5%;
 }
 
 body.about {
@@ -121,6 +123,7 @@ div.nav_contact {
 
 div.nav_datetime {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -167,7 +170,7 @@ div.nav_datetime {
   margin-right: 10px;
   padding-left: 25px;
 
-  background-color: #fae1b9;
+  background-color: #faebb9;
   background-image: url(/assets/kiwihug-y_2GC4EhOP4-unsplash.jpg);
   background-size: cover;
   background-blend-mode: hard-light;
@@ -209,9 +212,21 @@ div.nav_datetime {
   align-items: center;
 }
 
-.page_container.about h2 {
-  font-family: "Xanh Mono", monospace;
-  font-size: 2em;
+.page_container.about h3 {
+  font-family: "Xanh mono", monospace;
+  font-size: 1.25rem;
+}
+
+.page_container.about p,
+.page_container.about td,
+.page_container.about small {
+  font-family: "Overpass Mono", monospace;
+}
+
+.page_container.about p,
+.page_container.about td {
+    font-size: 1rem;
+    letter-spacing: 0;
 }
 
 .about .area-photo {
@@ -315,10 +330,13 @@ nav h3,
 nav p,
 nav span,
 nav hr {
+  font-family: "Overpass Mono", monospace;
   text-decoration: none;
   color: #050505;
   display: block;
   mix-blend-mode: color-burn;
+  letter-spacing: 0;
+  line-height: normal;
 }
 
 .nav_about,
@@ -448,6 +466,7 @@ a#logo:hover {
 /* Highlight effect */
 ::selection {
   background: rgba(216, 243, 106, 0.75);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.65);
 }
 
 nav a::selection,
@@ -471,10 +490,15 @@ div.nav_about {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  text-transform: uppercase;
 }
 
 p {
   margin-top: 0;
+}
+
+p b {
+  display: inline-block;
 }
 
 .page_container a {
@@ -501,13 +525,13 @@ li a {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   font-family: "Xanh Mono", monospace;
-  margin: 18px 0;
+  margin: 1em 0;
   padding: 0;
   font-weight: normal;
-  color: rgba(0, 0, 0, 1);
+  line-height: normal;
+  letter-spacing: normal;
 }
 
 h1 {
@@ -516,11 +540,13 @@ h1 {
 
 h2 {
   font-size: 1.75rem;
-  text-transform: uppercase;
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 7%;
 }
 
 nav h2,
@@ -536,7 +562,7 @@ nav h2,
   position: absolute;
   right: 0;
   top: calc(0.5rem + 2px);
-  font-size: 1.75em;
+  font-size: 1.75rem;
 }
 
 th {
@@ -546,7 +572,6 @@ th {
 small {
   display: inline-block;
   font-size: 0.75em;
-  font-family: "Overpass Mono", monospace;
   margin-bottom: 0.75em;
 }
 
@@ -569,11 +594,12 @@ footer {
 .project-tag small {
   display: inline-flex;
   padding: 0 4px;
-  margin-right: 4px;
+  margin-right: var(--gap);
   background-color: var(--projectTagColor);
   border-radius: 8px;
+  text-transform: uppercase;
   box-shadow:
-    0 0 4px 1px var(--projectTagColor),
+    0 0 4px var(--projectTagColor),
     0 0 14px var(--projectTagColor),
     0 0 20px var(--projectTagColor);
 }
@@ -612,18 +638,15 @@ footer {
 }
 
 .project-credit small,
-.project-credit a {
+.project-credit a,
+.project-tag small {
+  font-family: "Overpass Mono", monospace;
   color: #a2a19b;
+  letter-spacing: normal;
 }
 
 .project-credit small {
   display: block;
-  text-decoration: none;
-  pointer-events: none;
-}
-
-.project-credit a {
-  pointer-events: auto;
 }
 
 blockquote {
@@ -649,13 +672,13 @@ small.caption a {
   color: #909090;
 }
 
-small.caption {
+/* small.caption {
   margin-top: 0.25em;
   margin-bottom: 0.5em;
-}
+} */
 
 b {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* 
@@ -712,7 +735,11 @@ img {
   /* flex-grow: 0;
     flex-basis: 800px; */
   gap: var(--gap);
-  margin-bottom: var(--gap);
+  margin-bottom: calc(var(--gap) * 2);
+}
+
+.gallery-item-3 {
+  width: calc((100% - var(--gap)) - (100% - var(--gap) * 2) / 3);
 }
 
 .gallery-item-2 {
@@ -721,6 +748,10 @@ img {
 
 .gallery-item-1 {
   width: calc((100% - var(--gap) * 2) / 3);
+}
+
+.gallery-item-25 {
+  width: calc(25% - var(--gap) * 3 / 4);
 }
 
 video {
@@ -752,6 +783,14 @@ Responsive
 
 .about .nav-toggle.background {
   background-color: var(--aboutBackground);
+}
+
+.nav_container.appear {
+  display: block;
+}
+
+nav.open {
+  transform: none;
 }
 
 .hide {
@@ -831,8 +870,6 @@ Responsive
 
   .nav_container.appear {
     transform: rotate(1deg) translateX(10px) translateY(2px);
-
-    display: block;
   }
 
   .nav_container:hover {
@@ -841,14 +878,8 @@ Responsive
 
   nav {
     transform: translateY(100%);
-    /* margin-left: 0; */
     transition: transform 0.4s cubic-bezier(0.51, 0.44, 0, 1.04);
     width: fit-content;
-    /* left: 10px; */
-  }
-
-  nav.open {
-    transform: translateY(0);
   }
 
   .nav-toggle {
@@ -903,10 +934,6 @@ Responsive
     flex-basis: calc(300px - var(--gap));
   }
 
-  .about .col-75 {
-    flex-basis: calc(var(--aboutCol1) * 0.65);
-  }
-
   .cover-image {
     transform: translateX(calc(-1 * var(--pageMargin)));
   }
@@ -935,6 +962,7 @@ Responsive
   .nav_container.appear {
     transform: translateX(5px);
   }
+
   .page_container {
     width: calc(100% - var(--margin) * 2);
     margin-left: var(--margin);
@@ -956,14 +984,6 @@ Responsive
   .large-image {
     width: 100%;
     transform: none;
-  }
-
-  /* .gallery-item-1 {
-        width: calc(50% - var(--gap) / 4);
-    } */
-
-  .gallery-item-2 {
-    width: 100%;
   }
 
   .page_container.about {
@@ -1005,10 +1025,22 @@ Responsive
 
 @media (max-width: 735px) {
   h1 {
-    font-size: 3em;
+    font-size: 3rem;
+  }
+
+  .gallery-item-3 {
+    width: 100%;
+  }
+
+  .gallery-item-2 {
+    width: 100%;
   }
 
   .gallery-item-1 {
+    width: 100%;
+  }
+
+  .gallery-item-25 {
     width: 100%;
   }
 
@@ -1029,14 +1061,8 @@ Responsive
     display: none;
   }
 
-  .nav_container:hover {
-    transform: none;
-  }
-
   .nav_container.appear {
     transform: none;
-
-    display: block;
   }
 
   nav {
