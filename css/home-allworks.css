@@ -1,7 +1,36 @@
 .homepage {
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  font-family: "Overpass Mono", monospace;
   bottom: 10px;
-  width: 90%;
+}
+
+/* Typing animation */
+.homepage p:first-child {
+  overflow: hidden;
+  /* Keeps on a single line */
+  white-space: nowrap;
+  /* The cursor */
+  border-right: 1px solid;
+  /* steps = number of characters */
+  animation: typing 3.5s steps(36) forwards, blink 1s 3.5s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 
 .all-works {
@@ -9,6 +38,11 @@
   flex-wrap: wrap;
   gap: var(--gap);
   padding-top: var(--margin);
+}
+
+.all-works h2 {
+  display: flex;
+  width: 100%;
 }
 
 a.project-item {
@@ -33,6 +67,22 @@ a.project-item {
   /* text-transform: uppercase; */
 
   transition: transform 0.25s ease;
+}
+
+a.project-item.sticky-note {
+  background: rgb(255, 252, 188);
+  background-blend-mode: normal;
+}
+
+.sticky-note .project-thumb {
+  width: 100%;
+  height: calc(var(--projectWidth) * 5 / 4);
+  padding: 0;
+}
+
+.sticky-note .project-thumb img{
+  filter: none;
+  mix-blend-mode: normal;
 }
 
 .project-thumb {
@@ -124,6 +174,10 @@ a.project-item {
     bottom: 45%;
     transform: translateX(-50%);
     text-align: center;
+  }
+
+  .homepage p:first-child {
+    margin-inline: auto;
   }
 
   a.project-item {
