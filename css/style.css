@@ -8,6 +8,12 @@
 /* Body font */
 @import url("https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@font-face {
+  font-family: "Poiesis", serif;
+  src: url("//assets/fonts/SemperRevival261108WIP-Regular.woff2");
+  font-weight: normal;
+  font-style: normal;
+}
 
 .about::-webkit-scrollbar {
   display: none;
@@ -38,11 +44,12 @@ body {
   gap: var(--gap);
   padding: 0;
   margin: 0;
-  font-family: "Lexend", sans-serif;
   background-color: var(--background);
   overflow-x: hidden;
+  font-family: "Poiesis", serif;
+  /* font-family: "Lexend", sans-serif;
   font-weight: 260;
-  letter-spacing: 5%;
+  letter-spacing: 5%; */
 }
 
 body.about {
